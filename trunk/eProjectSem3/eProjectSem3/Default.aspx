@@ -12,8 +12,31 @@
 		<link rel="stylesheet" type="text/css" media="print" href="css/print.css"  />
 		<link rel="stylesheet" type="text/css" media="handheld" href="css/handheld.css"  />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/header/small.css" />
-		 <script language="JavaScript">
-		     document.onmousedown = click
+		<script LANGUAGE="JavaScript" type="text/javascript">
+		    function click() {
+		        if (event.button == 1) {
+		            alert("Bản quyền của tuấn anh");
+		        }
+		    }
+		    document.onmousedown = click
+		    // -->
+</script>	
+<script LANGUAGE="JavaScript" type="text/javascript">
+    function click() {
+        if (event.button == 2) {
+            alert("Bản quyền của tuấn anh");
+        }
+    }
+    document.onmousedown = click
+    // -->
+</script>
+
+		<!-- Cấm ăn trộm bản quyển -->
+		<script language="javascript"type="text/javascript">	
+		    if (window != top)
+		        top.location.href = location.href
+        </script>
+		 <script language="JavaScript" type="text/javascript">
 		     var times = 0
 		     var times2 = 10
 		     function earthquake() {
@@ -68,7 +91,7 @@
 		     }
 
 </script>
-<script>
+<script language="JavaScript" type="text/javascript">
     window.scrollBy(0, 1)
     window.resizeTo(0, 0)
     window.moveTo(0, 0)
@@ -202,7 +225,7 @@
 
 <div id="footer">
   <p>Copyright &copy; 2010 , Group I - C0807I - FPT - Aptech .</p>
-    <p>Visitors : <%=Application["count_visit"].ToString()%> </p>
+    <p>Visitors : <%=Application["count_visit"].ToString()%> <img src="images/User.png" /></p>
  </div>
 
 
