@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="News.aspx.cs" Inherits="News" %>
+<%@ Register Src="~/UAC/NewNews.ascx" TagName="ListNews" TagPrefix="uc" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,18 +13,13 @@
     
         <table style="width:100%;">
             <tr>
-                <td>
-                    <img alt="" src="" /></td>
-                <td>
+                <td colspan="2" rowspan="2">
+                 <uc:ListNews ID="ListNews1" runat="server" />
                     &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>
             <tr>
-                <td>
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
                 <td>
                     &nbsp;</td>
             </tr>

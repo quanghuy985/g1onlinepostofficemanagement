@@ -20,6 +20,9 @@ public partial class UAC_NewNews : System.Web.UI.UserControl
     }
     private void bind()
     {
-
+        NewsBL news = new NewsBL();
+        dt = news.ViewHotNews();
+        rptNews.DataSource = dt;
+        rptNews.DataBind();
     }
 }
