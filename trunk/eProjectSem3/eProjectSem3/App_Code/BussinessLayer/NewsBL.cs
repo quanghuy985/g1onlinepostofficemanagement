@@ -28,4 +28,12 @@ public class NewsBL
     {
         return helper.ExecuteQuerry("pc_ViewHotNews", null);
     }
+    public DataTable View3News()
+    {
+        return helper.ExecuteQuerry("pc_View3News",null);
+    }
+    public DataTable view10News()
+    {
+        return helper.ExecuteQuerry("pc_View10News", null);
+    }
 }
