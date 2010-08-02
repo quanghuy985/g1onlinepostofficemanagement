@@ -10,16 +10,18 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 
 /// <summary>
 /// Summary description for DBhelper
 /// </summary>
 public class DBhelper
 {
+    SqlConnection con;
+    SqlCommand cmd = new SqlCommand();
     public DBhelper()
     {
-        SqlConnection con;
-        SqlCommand cmd = new SqlCommand();
+        
 
     }
 

@@ -25,4 +25,8 @@ public partial class UAC_NewNews : System.Web.UI.UserControl
         rptNews.DataSource = dt;
         rptNews.DataBind();
     }
+    public void More(object sender, CommandEventArgs e)
+    {
+        Response.Redirect("NewsDetail.aspx?newsID=" + e.CommandArgument.ToString());
+    }
 }
