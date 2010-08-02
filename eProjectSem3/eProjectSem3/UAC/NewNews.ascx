@@ -26,7 +26,7 @@
         <div style="float:left; width: 30% ">
        <table style="width: 100%; height: 141px;">
             <tr>
-                <td align="center"> <img alt="Không có ảnh" width="500"  src="images/<%#DataBinder.Eval(Container.DataItem, "newsImage")%>" /></td>
+                <td align="center"> <img alt="Không có ảnh" width="300"  src="images/<%#DataBinder.Eval(Container.DataItem, "newsImage")%>" /></td>
             </tr>
             <tr>
                 <td align="center" style="font-style:italic;font-family:Times New Roman;">

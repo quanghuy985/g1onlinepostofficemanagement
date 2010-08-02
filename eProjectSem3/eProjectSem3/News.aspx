@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="News.aspx.cs" Inherits="News" %>
-<%@ Register Src="~/UAC/NewNews.ascx" TagName="ListNews" TagPrefix="uc" %>
+<%@ Register Src="~/UAC/NewNews.ascx" TagName="ListNews" TagPrefix="uc3" %>
+<%@ Register Src="~/UAC/ListNewsFooter.ascx" TagName="ListNewsFooter" TagPrefix="uc2" %>
+<%@ Register Src="~/UAC/OldNewsDetail.ascx" TagName="ListOldNewsDetail" TagPrefix="uc1" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -13,24 +15,21 @@
     
         <table style="width:100%;">
             <tr>
-                <td colspan="2" rowspan="2">
-                 <uc:ListNews ID="ListNews1" runat="server" />
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
+                <td style="width:100%">
+                 <uc3:ListNews ID="ListNews1" runat="server" />
+                   </td>
+                   <td>
+                   </td>
+                <td style="width:100%">
+                    <uc1:ListOldNewsDetail ID="ListNews3" runat="server" /></td>
             </tr>
-            <tr>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td>
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
+            </table>
+        <table>
+        <tr>
+        <td>
+        <uc2:ListNewsFooter ID="ListNews2" runat="server" />
+        </td>
+        </tr>
         </table>
     
     </div>
