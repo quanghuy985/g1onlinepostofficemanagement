@@ -11,10 +11,25 @@
             width: 391px;
         }
     </style>
+
+    <script src="js/jquery-1.4.2.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+    function click(id){
+           
+             
+                   $("#hiser").hide();
+                   $("#loader").load("NewsDetail.aspx",id);
+                   return false;
+               
+               }
+            
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div id="loader">
+    <a id="LinkButt" href="#">sadas</a>
+    <div id="hiser">
     
         <table style="width:100%;">
             <tr>
@@ -41,7 +56,8 @@
             <tr>
                 <td align="center" style="font-style:italic;font-family:Times New Roman;">
                    Brief :<asp:LinkButton ID="lbtMore2" runat="server"  Font-Bold="True" Font-Overline="false" Font-Underline="false" ForeColor="Brown"> <%# DataBinder.Eval(Container.DataItem, "newsTitle")%></asp:LinkButton> </td>
-                <a href="#" onclick="lod(<%#DataBinder.Eval(Container.DataItem, "newsID")%>)" >test</a> 
+  
+                <input id="Button1" type="button" value="button" onclick="click(<%#DataBinder.Eval(Container.DataItem, "newsID")%>)" />
             </tr>
             <tr>
              <td align="center"> <%# DataBinder.Eval(Container.DataItem, "newsBrief")%>...<asp:LinkButton ID="lbtMore" runat="server" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "newsID")%>' OnCommand="More" Font-Underline="false"> More...</asp:LinkButton></td>
@@ -130,6 +146,7 @@
         <br />
         <br />
     
+    </div>
     </div>
     </form>
 </body>
