@@ -29,7 +29,7 @@
 	<script>
            $(document).ready(function(){
            
-              $("#Clcik").click(function(){
+              $("#LinkButton1").click(function(){
                    $("#loading").show();
                   $("#content").load("Default2.aspx");
                    return false;
@@ -46,8 +46,12 @@
 	</head>
 <body>
 
+    <form id="form1" runat="server">
+
 <div id="nav-container">
-<a id="Clcik">Click Here </a>
+<a id="Clcik" onclick>Click Here 
+    <asp:LinkButton ID="LinkButton1" runat="server">LinkButton</asp:LinkButton>
+    </a>
 </div>
 <div id="container" >
   <div id="content-container">
@@ -66,6 +70,10 @@
   <p>Copyright &copy; 2010 , Group I - C0807I - FPT - Aptech .</p>
     <p>Visitors : <%=Application["count_visit"].ToString()%> <img src="images/User.png" /></p>
  </div>
+
+
+
+    </form>
 
 
 
