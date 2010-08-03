@@ -8,19 +8,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Untitled Page</title>
+    <style type="text/css">
+        .style3
+        {
+            width: 20%;
+        }
+        .style2
+        {
+        	width:50%;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
-    
         <table style="width:100%;">
             <tr>
-                <td style="width:100%">
+                <td class="style3">
                  <uc3:ListNews ID="ListNews1" runat="server" />
                    </td>
-                   <td>
-                   </td>
-                <td style="width:100%">
+                   <td class="style2">
                     <uc1:ListOldNewsDetail ID="ListNews3" runat="server" /></td>
             </tr>
             </table>

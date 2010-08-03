@@ -1,21 +1,12 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="NewNews.ascx.cs" Inherits="UAC_NewNews" %>
-<style type="text/css">
-    .style1
-    {
-        height: 728px;
-        width:400px;
-    }
-</style>
-<table>
+<table width="50%">
 <tr>
-
-<asp:Panel ID="pnlResults" runat="server" Visible="true">
 <asp:Repeater ID="rptNews" runat="server">
     <HeaderTemplate>
-    <table>
+    <table width="50%">
     <tr>
     
-    <td style="width:100%" align="center">
+    <td style="width:10%" align="left">
     Hot News >>.
     </td>
     <hr />
@@ -23,8 +14,8 @@
     </table>
     </HeaderTemplate>
     <ItemTemplate>
-        <div style="float:left; width: 30% ">
-       <table style="width: 100%; height: 141px;">
+        <div style="float:left; width: 50% ">
+       <table style="width: 50%; height: 141px;">
             <tr>
                 <td align="center"> <img alt="Không có ảnh" width="300"  src="images/<%#DataBinder.Eval(Container.DataItem, "newsImage")%>" /></td>
             </tr>
@@ -49,19 +40,9 @@
     </FooterTemplate>
 </asp:Repeater>
 
-</asp:Panel>
-
 </tr>
 <tr>
 <td>
-
-
-<asp:Panel ID="pnlNoResults" runat="server" Visible="false">
-    <div>
-    
-    </div>
-   
-</asp:Panel>
 </td>
 </tr>
 </table>
