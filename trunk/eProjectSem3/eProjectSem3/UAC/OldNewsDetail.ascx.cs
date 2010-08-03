@@ -21,6 +21,9 @@ public partial class UAC_OldNewsDetail : System.Web.UI.UserControl
     private void bindGrid()
     {
         NewsBL news = new NewsBL();
+        dt = news.view10News();
+        rptNewsFooter.DataSource = dt;
+        rptNewsFooter.DataBind();
     }
     public void More(object sender, CommandEventArgs e)
     {
