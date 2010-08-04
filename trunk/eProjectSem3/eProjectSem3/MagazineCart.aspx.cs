@@ -23,19 +23,19 @@ public partial class MagazineCartaspx : System.Web.UI.Page
     }
     public void deleteCart(object sender, CommandEventArgs e)
     {
-        //int id = Convert.ToInt32(e.CommandArgument.ToString());
-        //cart = (ArrayList)Session["ShoppingCart"];
-        //int n = cart.Count;
-        //for (int i = 0; i < n; i++)
-        //{
-        //    if (((aas.ticketing)cart[i]).tiketids == id)
-        //    {
-        //        cart.RemoveAt(i);
-        //        Session["ShoppingCart"] = cart;
-        //        bindGrid();
-        //        break;
-        //    }
-        //}
+        int id = Convert.ToInt32(e.CommandArgument.ToString());
+        cart = (ArrayList)Session["ShoppingCart"];
+        int n = cart.Count;
+        for (int i = 0; i < n; i++)
+        {
+            if (((MagazineEN)cart[i]).MagazineDailyID == id)
+            {
+                cart.RemoveAt(i);
+                Session["ShoppingCart"] = cart;
+                bindGrid();
+                break;
+            }
+        }
     }
     private void bindGrid()
     {
@@ -59,5 +59,9 @@ public partial class MagazineCartaspx : System.Web.UI.Page
         rpt_mg_cart.DataSource = bk;
         rpt_mg_cart.DataBind();
       //  lblSum.Text = sum.ToString() + " .VND";
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
     }
 }

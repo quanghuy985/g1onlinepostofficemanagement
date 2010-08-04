@@ -54,6 +54,9 @@
             </table>
         </FooterTemplate>
     </asp:Repeater>
+        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
+            Text="Check Out" />
+        <br />
     </div>
     </form>
 </body>
