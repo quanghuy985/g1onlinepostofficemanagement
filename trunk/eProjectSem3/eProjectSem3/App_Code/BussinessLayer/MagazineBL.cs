@@ -35,7 +35,14 @@ public class MagazineBL
       
       
     }
-    public void intsert_Order(string cus_id,) { 
+    public void intsert_Order(string cus_Name) {
+        list = new List<SqlParameter>();
+        SqlParameter paraContent = new SqlParameter("@CusName", SqlDbType.NVarChar);
+        paraContent.Value = cus_Name;
+        list.Add(paraContent);
+        return helper.ExecuteQuerry("pc_Insert_order", list);
+    }
+    public void insert_Order_detail() { 
     
     }
 }
