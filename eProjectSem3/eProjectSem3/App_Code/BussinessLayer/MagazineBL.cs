@@ -35,4 +35,7 @@ public class MagazineBL
       
       
     }
+    public void intsert_Order(string cus_id,) { 
+    
+    }
 }
