@@ -13,22 +13,21 @@
     </style>
 
     <script src="js/jquery-1.4.2.js" type="text/javascript"></script>
-    <script language="javascript" type="text/javascript">
-    function click(id){
+<script>
+           function clicker(id){
            
-             
-                   $("#hiser").hide();
-                   $("#loader").load("NewsDetail.aspx",id);
+              
+                   $("#loading").show();
+                  $("#content").load("NewsDetail.aspx?id="+id);
                    return false;
-               
+              
                }
             
-    </script>
+      </script>
 </head>
 <body>
     <form id="form1" runat="server">
     <div id="loader">
-    <a id="LinkButt" href="#">sadas</a>
     <div id="hiser">
     
         <table style="width:100%;">
@@ -39,7 +38,7 @@
     <table width="50%">
     <tr>
     
-    <td style="width:10%" align="left">
+    <td style="width:10%;font-size:large" align="left">
     Hot News >>.
     </td>
     <hr />
@@ -47,7 +46,7 @@
     </table>
     </HeaderTemplate>
     <ItemTemplate>
-    <div id="content">
+   
         <div style="float:left; width: 20px " id="Loader">
        <table style="width: 20px; height: 20px;">
             <tr>
@@ -55,19 +54,18 @@
             </tr>
             <tr>
                 <td align="center" style="font-style:italic;font-family:Times New Roman;">
-                   Brief :<asp:LinkButton ID="lbtMore2" runat="server"  Font-Bold="True" Font-Overline="false" Font-Underline="false" ForeColor="Brown"> <%# DataBinder.Eval(Container.DataItem, "newsTitle")%></asp:LinkButton> </td>
-  
-                <input id="Button1" type="button" value="button" onclick="click(<%#DataBinder.Eval(Container.DataItem, "newsID")%>)" />
+                   Brief :<a href="#" id="Button1" style="font-family:Times New Roman;font-size:medium;font-style:italic" onclick="clicker(<%#DataBinder.Eval(Container.DataItem, "newsID")%>)"> <%# DataBinder.Eval(Container.DataItem, "newsTitle")%></a> </td>
+                
             </tr>
             <tr>
-             <td align="center"> <%# DataBinder.Eval(Container.DataItem, "newsBrief")%>...<asp:LinkButton ID="lbtMore" runat="server" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "newsID")%>' OnCommand="More" Font-Underline="false"> More...</asp:LinkButton></td>
+             <td align="center"> <%# DataBinder.Eval(Container.DataItem, "newsBrief")%>...<a href="#" id="A1" style="font-style:italic" onclick="clicker(<%#DataBinder.Eval(Container.DataItem, "newsID")%>)"> More...</a></td>
             </tr>
            
             <hr />       
         </table>
             
         </div>
-        </div>
+       
     </ItemTemplate>
     <FooterTemplate>
     
@@ -94,7 +92,7 @@
             <tr>
             <td style="width:5%"></td>
                 <td align="left"  valign="middle" style="width:50%;font-size:smaller; font-style:oblique;font-family:Times New Roman;"><li>
-                   <asp:LinkButton ID="lbtMore2" runat="server" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "newsID")%>' OnCommand="More" Font-Bold="True" Font-Overline="false" Font-Underline="false" ForeColor="Brown"> <%# DataBinder.Eval(Container.DataItem, "newsTitle")%></asp:LinkButton></li>  </td>
+                   <a href="#" id="Button1" style="font-family:Times New Roman;font-size:small;font-style:italic" onclick="clicker(<%#DataBinder.Eval(Container.DataItem, "newsID")%>)"> <%# DataBinder.Eval(Container.DataItem, "newsTitle")%></a></li>  </td>
       
           </tr>
         </table>
@@ -126,7 +124,7 @@
             <tr>
                 <td align="center"> <img alt="Không có ảnh" width="100"  src="images/<%#DataBinder.Eval(Container.DataItem, "newsImage")%>" /></td>
                  <td align="center" style="font-style:italic;font-family:Times New Roman;">
-                   Brief :<asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "newsID")%>' OnCommand="More" Font-Bold="True" Font-Overline="false" Font-Underline="false" ForeColor="Brown"> <%# DataBinder.Eval(Container.DataItem, "newsTitle")%></asp:LinkButton> </td>
+                   Brief :<a href="#" id="Button1" style="font-family:Times New Roman;font-style:italic;font-size:medium" onclick="clicker(<%#DataBinder.Eval(Container.DataItem, "newsID")%>)"> <%# DataBinder.Eval(Container.DataItem, "newsTitle")%></a> </td>
             </tr>
            
            
