@@ -10,6 +10,8 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using System.Net;
+using System.Net.Mail;
 
 public partial class AddCustomer : System.Web.UI.Page
 {
@@ -20,6 +22,20 @@ public partial class AddCustomer : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+    }
+
+    private void sendMail()
+    {
+        MailMessage message = new MailMessage();
+        message.From = new MailAddress("@gmail.com");
+        message.To.Add(new MailAddress(txtEmail.Text));
+        message.Subject = "You registed successful!";
+        message.Body = "To day" + DateTime.Now.ToShortDateString();
+
+        SmtpClient smtp = new SmtpClient();
+        smtp.EnableSsl = true;
+
+        smtp.Send(message);
     }
     protected void Label6_Click(object sender, EventArgs e)
     {
@@ -32,6 +48,7 @@ public partial class AddCustomer : System.Web.UI.Page
         //{
 
             cusBL.AddCustomer(txtUsername.Text, txtPassword.Text, txtFullname.Text, txtAddress.Text, txtEmail.Text);
+            sendMail();
             Response.Redirect("Loading.aspx");
         //}
     }
