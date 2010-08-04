@@ -10,13 +10,16 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Data.SqlClient;
+using System.Collections;
 using System.Collections.Generic;
 
 public class MagazineBL
 {
     DBhelper helper = new DBhelper();
     DataTable dta = new DataTable();
+    DataTable dta1 = new DataTable();
     List<SqlParameter> list;
+    private int orderID;
 	public MagazineBL()
 	{
 		
@@ -35,14 +38,49 @@ public class MagazineBL
       
       
     }
-    public void intsert_Order(string cus_Name) {
+    public int intsert_Order(string cus_Name) {
         list = new List<SqlParameter>();
         SqlParameter paraContent = new SqlParameter("@CusName", SqlDbType.NVarChar);
         paraContent.Value = cus_Name;
         list.Add(paraContent);
-        return helper.ExecuteQuerry("pc_Insert_order", list);
+        dta= helper.ExecuteQuerry("pc_Insert_order", list);
+        dta1 = helper.ExecuteQuerry("pc_get_orderdetail", null);
+        if (dta1.Rows.Count != 0)
+        {
+            orderID = Convert.ToInt32(dta1.Rows[0].ItemArray[0].ToString());
+        }
+        return orderID;
     }
-    public void insert_Order_detail() { 
-    
+    public void insert_Order_detail(string cusname,ArrayList magazine,string adress,int servicedetailID) {
+        MagazineEN[] mge = new MagazineEN[magazine.Count];
+        int _orderid = this.intsert_Order(cusname);
+        for (int i = 0; i < magazine.Count; i++)
+        {
+            mge[i] = (MagazineEN)magazine[i];
+            list = new List<SqlParameter>();
+            SqlParameter para1 = new SqlParameter("@orderID", SqlDbType.Int);
+            SqlParameter para2 = new SqlParameter("@serviceDetailID", SqlDbType.Int);
+            SqlParameter para3 = new SqlParameter("@magazineDailyID", SqlDbType.Int);
+            SqlParameter para4 = new SqlParameter("@monthMagazineDaily", SqlDbType.Int);
+            SqlParameter para5 = new SqlParameter("@addressMagazineDaily", SqlDbType.NVarChar);
+            para1.Value = _orderid;
+            para2.Value = servicedetailID;
+            para3.Value = mge[i].MagazineDailyID;
+            para4.Value = mge[i].MonthMagazineDaily;
+            para5.Value = adress;
+            list.Add(para1);
+            list.Add(para2);
+            list.Add(para3);
+            list.Add(para4);
+            list.Add(para5);
+            helper.ExecuteQuerry("insert_Order_detail", list);
+        }
+    }
+    //public void checkout(String cusName,ArrayList magaZine,String adress,int servicedetailID) {
+       
+    //    this.insert_Order_detail(cusName, magaZine, adress);
+    //}
+    public DataTable view_service_detail() {
+        return helper.ExecuteQuerry("pc_view_service_maga", null);
     }
 }

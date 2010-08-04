@@ -13,7 +13,7 @@
         <table style="width: 52%; height: 269px;">
             <tr>
                 <td rowspan="3">
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" ontextchanged="TextBox1_TextChanged">1</asp:TextBox>
                 </td>
                 <td>
                     &nbsp;</td>

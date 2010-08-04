@@ -8,11 +8,6 @@
     <style type="text/css">
         .style1
         {
-            width: 100px;
-        }
-        .style2
-        {
-            width: 21px;
         }
         .style3
         {
@@ -21,126 +16,52 @@
         .style4
         {
             width: 100px;
-            height: 38px;
+            height: 36px;
         }
         .style5
         {
-            height: 38px;
+            height: 36px;
         }
-        .style6
-        {
-            width: 21px;
-            height: 38px;
-        }
-        .style7
-        {
-            width: 43px;
-            height: 38px;
-        }
-    </style>
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
     
-        <table style="width: 45%; height: 387px;">
+        <table style="width: 50%; height: 98px;">
             <tr>
                 <td class="style1">
                     &nbsp;</td>
-                <td align="center" colspan="2">
+                <td align="center">
                     Thong tin khach hang</td>
                 <td class="style3">
                     &nbsp;</td>
             </tr>
             <tr>
-                <td class="style1">
-                    Service Detail</td>
-                <td colspan="2">
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                </td>
-                <td class="style3">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    parcelFromAddress</td>
-                <td colspan="2">
-                    &nbsp;</td>
-                <td class="style3">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    parcelFromDistrict</td>
-                <td>
-                    &nbsp;</td>
-                <td class="style2">
-                    &nbsp;</td>
-                <td class="style3">
-                    &nbsp;</td>
-            </tr>
-            <tr>
                 <td class="style4">
-                    parcelFromCity</td>
-                <td class="style5">
-                </td>
-                <td class="style6">
-                </td>
-                <td class="style7">
+                    Service Detail</td>
+                <td colspan="2" class="style5">
+                    <asp:DropDownList ID="DropDownList1" runat="server">
+                    </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td class="style1">
-                    parcelToAddress</td>
-                <td>
-                    &nbsp;</td>
-                <td class="style2">
-                    &nbsp;</td>
-                <td class="style3">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    parcelToDistrict</td>
-                <td>
-                    &nbsp;</td>
-                <td class="style2">
-                    &nbsp;</td>
-                <td class="style3">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    parcelToCity</td>
-                <td>
-                    &nbsp;</td>
-                <td class="style2">
-                    &nbsp;</td>
-                <td class="style3">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+                    Adress</td>
+                <td colspan="2" style="color: #FF0000">
+                    <asp:TextBox ID="txtadress" runat="server" Width="210px"></asp:TextBox>
+                    <br />
+                    please insert full infomation<br />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ErrorMessage="you "></asp:RequiredFieldValidator>
                 </td>
-                <td>
-                    &nbsp;</td>
-                <td class="style2">
-                    &nbsp;</td>
-                <td class="style3">
-                    &nbsp;</td>
             </tr>
             <tr>
-                <td class="style1">
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-                <td class="style2">
-                    &nbsp;</td>
-                <td class="style3">
-                    &nbsp;</td>
+                <td class="style1" align="center" colspan="3">
+                    <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Submit" />
+                </td>
             </tr>
-        </table>
+            </table>
     
     </div>
     </form>
