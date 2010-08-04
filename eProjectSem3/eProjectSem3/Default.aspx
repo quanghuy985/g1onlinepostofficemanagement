@@ -55,9 +55,10 @@
 </div>
 <div id="container" >
   <div id="content-container">
-		<div id="content">
-		<div id="loading">
-              <img src="lightbox/images/loader.gif" width="40" height="42">
+		<div id="content" style="text-align:center">
+		<div id="loading" style="text-align:center">
+              <img src="images/ajax-loader.gif" width="20" height="20">
+              <p><blink>Loading.........</blink></p>
           </div>
     </div>
 		<div id="sidebar"></div>
