@@ -36,4 +36,12 @@ public class NewsBL
     {
         return helper.ExecuteQuerry("pc_View10News", null);
     }
+    public DataTable viewNewsDetail(int newsID)
+    {
+        List<SqlParameter> list = new List<SqlParameter>();
+        SqlParameter paraNewsID = new SqlParameter("@newsID", SqlDbType.Int);
+        paraNewsID.Value = newsID;
+        list.Add(paraNewsID);
+        return helper.ExecuteQuerry("pc_viewNewsByID", list);
+    }
 }
