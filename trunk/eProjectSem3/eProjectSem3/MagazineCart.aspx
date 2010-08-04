@@ -27,7 +27,7 @@
                     <th style="color: Black">
                         Magazine Nmae</th>
                     <th style="color: Black">
-                        Gia</th>
+                        Service</th>
                     <th style="color: Black">
                         Thang</th>
                         <th style="color: Black">
@@ -43,9 +43,10 @@
                 <td style="color: Black">
               </td>
                 <td style="color: Black">
-                    <asp:TextBox ID="TextBox1" runat="server" Width=30%></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "MonthMagazineDaily", "{0: ###,###}") %>' Width=30% ontextchanged="TextBox1_TextChanged" ></asp:TextBox>
 </td>
                     <td style="color:Black">
+                    <asp:Button ID="btnUpdate" runat="server" Text="C&#7853;p nh&#7853;t" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "MagazineDailyID")%>' OnCommand="updateCart" />
                     <asp:Button ID="btnDelete" runat="server" Text="Xóa" CommandArgument='<%#DataBinder.Eval(Container.DataItem, "magazineDailyID")%>' OnCommand="deleteCart" />
                     </td>
             </tr>
@@ -55,7 +56,9 @@
         </FooterTemplate>
     </asp:Repeater>
         <asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
-            Text="Check Out" />
+            Text="Check Out" style="width: 94px" />
+        <br />
+        <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
         <br />
     </div>
     </form>

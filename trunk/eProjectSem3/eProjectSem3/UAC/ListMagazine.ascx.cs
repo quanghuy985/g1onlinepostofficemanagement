@@ -39,7 +39,7 @@ public partial class UAC_ListMagazine : System.Web.UI.UserControl
             mge.MagazineDailyID =  Convert.ToInt32(e.CommandArgument.ToString());;
             mge.ServiceID = Convert.ToInt32(dt.Rows[0].ItemArray[1].ToString());
             mge.MagazineName = dt.Rows[0].ItemArray[2].ToString();
-
+            mge.MonthMagazineDaily = 1;
         }
         if (Session["ShoppingCart"] != null)
         {
