@@ -30,4 +30,8 @@ public partial class NewsDetail : System.Web.UI.Page
         rptNewsFooter.DataSource = dt;
         rptNewsFooter.DataBind();
     }
+    protected void rptNewsDetail_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+
+    }
 }
