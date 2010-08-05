@@ -58,4 +58,23 @@ public class CustomerBL
         return helper.ExecuteQuerry("sp_CheckExistCustomer", list);
         
     }
+    public DataTable ResumePassword(string cusUserName)
+    {
+        List<SqlParameter> list = new List<SqlParameter>();
+        SqlParameter paracusUserName = new SqlParameter("@cusUserName", SqlDbType.VarChar);
+        paracusUserName.Value = cusUserName;
+        list.Add(paracusUserName);
+        return helper.ExecuteQuerry("ResumePassword", list);
+    }
+    public DataTable CheckCustomerLogin(string cusUserName, string cusPassword)
+    {
+        List<SqlParameter> list = new List<SqlParameter>();
+        SqlParameter paracusUserName = new SqlParameter("@cusUserName", SqlDbType.VarChar);
+        SqlParameter paracusPassword = new SqlParameter("@cusPassword", SqlDbType.VarChar);
+        paracusUserName.Value = cusUserName;
+        paracusPassword.Value = cusPassword;
+        list.Add(paracusUserName);
+        list.Add(paracusPassword);
+        return helper.ExecuteQuerry("CheckCustomerLogin", list);
+    }
 }
