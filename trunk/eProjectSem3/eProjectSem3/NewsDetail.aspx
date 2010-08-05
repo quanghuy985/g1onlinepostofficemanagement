@@ -12,9 +12,10 @@
     <table>
     <tr>
     <td>
-    <asp:Repeater ID="rptNewsDetail" runat="server">
+    <asp:Repeater ID="rptNewsDetail" runat="server" 
+            onitemcommand="rptNewsDetail_ItemCommand">
     <HeaderTemplate>
-    <table>
+    <table style="width:100% ; vertical-align:bottom " >
     <tr>
     
     <td style="width:100%" align="center">
@@ -25,16 +26,16 @@
     </table>
     </HeaderTemplate>
     <ItemTemplate>
-        <div style="float:left; width: 100% ">
+        <div style=" float:left; width: 100% ">
        <table style="width: 100%; height: 141px;">
             <tr>
-            <td align="left" style="font-style:italic;font-family:Times New Roman;">
+            <td align="center"style="font-style:italic;font-family:Times New Roman;">
                    Tiêu đề : <%# DataBinder.Eval(Container.DataItem, "newsTitle")%> </td>
                 
             </tr>
             <tr>
                 
-                 <td align="left"> <%# DataBinder.Eval(Container.DataItem, "newsBrief")%>...<p></p></td>
+                 <td align="center"> <%# DataBinder.Eval(Container.DataItem, "newsBrief")%>...<p></p></td>
             </tr>
             <tr>
              
