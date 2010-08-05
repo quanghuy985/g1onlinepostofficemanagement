@@ -21,7 +21,7 @@ public partial class AddCustomer : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        txtUserName.Text = Request.QueryString["UserName"];
     }
 
     private void sendMail()
