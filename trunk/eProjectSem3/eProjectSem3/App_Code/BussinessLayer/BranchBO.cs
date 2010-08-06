@@ -35,4 +35,12 @@ public class BranchBO
         list.Add(para);
         return helper.ExecuteQuerry("pc_getDistrictByCity", list);
     }
+    public DataTable getAreaByCity(string city)
+    {
+        List<SqlParameter> list = new List<SqlParameter>();
+        SqlParameter para = new SqlParameter("@city", SqlDbType.NVarChar);
+        para.Value = city;
+        list.Add(para);
+        return helper.ExecuteQuerry("pc_getAreaByCity", list);
+    }
 }

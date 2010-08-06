@@ -44,4 +44,37 @@ public partial class ParcelPostOfficeFunction : System.Web.UI.Page
         }
         return chuoi;
     }
+    [System.Web.Services.WebMethod]
+    public static String CalculateLocation(string fromCity,string toCity)
+    {
+        DataTable dt;
+        DataTable dtFromArea;
+        DataTable dtToArea;
+        string location = null;
+        string fromArea = null;
+        string toArea = null;
+        BranchBO branch = new BranchBO();
+        dtFromArea = branch.getAreaByCity(fromCity);
+        if (dtFromArea.Rows.Count != 0)
+        {
+            fromArea = dtFromArea.Rows[0].ItemArray[0].ToString();
+        }
+        dtToArea = branch.getAreaByCity(toCity);
+        if (dtToArea.Rows.Count != 0)
+        {
+            toArea = dtToArea.Rows[0].ItemArray[0].ToString();
+        }
+        if (fromArea.Equals(toArea))
+        {
+            location = "In Area";
+        }
+        else
+        {
+            ParcelPostBO parcelPost = new ParcelPostBO();
+           dt= parcelPost.GetServiceDetailParcelPostFromLocation(fromArea, toArea);
+            location = dt.Rows[0].ItemArray[0].ToString();
+
+        }
+        return location;
+    }
 }

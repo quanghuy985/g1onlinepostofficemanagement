@@ -51,30 +51,32 @@ public class MagazineBL
         }
         return orderID;
     }
+    // Thằng Quân xem lại đoạn này khai báo mảng thế này sao đc, nó sinh lỗi
     public void insert_Order_detail(string cusname,ArrayList magazine,string adress,int servicedetailID) {
-        MagazineEN[] mge = new MagazineEN[magazine.Count];
-        int _orderid = this.intsert_Order(cusname);
-        for (int i = 0; i < magazine.Count; i++)
-        {
-            mge[i] = (MagazineEN)magazine[i];
-            list = new List<SqlParameter>();
-            SqlParameter para1 = new SqlParameter("@orderID", SqlDbType.Int);
-            SqlParameter para2 = new SqlParameter("@serviceDetailID", SqlDbType.Int);
-            SqlParameter para3 = new SqlParameter("@magazineDailyID", SqlDbType.Int);
-            SqlParameter para4 = new SqlParameter("@monthMagazineDaily", SqlDbType.Int);
-            SqlParameter para5 = new SqlParameter("@addressMagazineDaily", SqlDbType.NVarChar);
-            para1.Value = _orderid;
-            para2.Value = servicedetailID;
-            para3.Value = mge[i].MagazineDailyID;
-            para4.Value = mge[i].MonthMagazineDaily;
-            para5.Value = adress;
-            list.Add(para1);
-            list.Add(para2);
-            list.Add(para3);
-            list.Add(para4);
-            list.Add(para5);
-            helper.ExecuteQuerry("insert_Order_detail", list);
-        }
+        //MagazineEN[] mge = new MagazineEN[magazine.Count];
+        //int _orderid = this.intsert_Order(cusname);
+        //for (int i = 0; i < magazine.Count; i++)
+        //{
+        //    mge[i] = (MagazineEN)magazine[i];
+        //    list = new List<SqlParameter>();
+        //    SqlParameter para1 = new SqlParameter("@orderID", SqlDbType.Int);
+        //    SqlParameter para2 = new SqlParameter("@serviceDetailID", SqlDbType.Int);
+        //    SqlParameter para3 = new SqlParameter("@magazineDailyID", SqlDbType.Int);
+        //    SqlParameter para4 = new SqlParameter("@monthMagazineDaily", SqlDbType.Int);
+        //    SqlParameter para5 = new SqlParameter("@addressMagazineDaily", SqlDbType.NVarChar);
+        //    para1.Value = _orderid;
+        //    para2.Value = servicedetailID;
+        //    para3.Value = mge[i].MagazineDailyID;
+        //    para4.Value = mge[i].MonthMagazineDaily;
+        //    para5.Value = adress;
+        //    list.Add(para1);
+        //    list.Add(para2);
+        //    list.Add(para3);
+        //    list.Add(para4);
+        //    list.Add(para5);
+        //    helper.ExecuteQuerry("insert_Order_detail", list);
+        //}
+
     }
     //public void checkout(String cusName,ArrayList magaZine,String adress,int servicedetailID) {
        
