@@ -10,8 +10,10 @@
     <script language="javascript" type="text/javascript">
         var $j = jQuery.noConflict();
         $j(document).ready(function() {
+
+
             //Set Option cho Parcel
-        $j("#ddlCityTo").change(function() {
+            $j("#ddlCityTo").change(function() {
 
                 $j.ajax({
                     type: "POST",
@@ -20,10 +22,27 @@
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function(message) {
-                    $j("#checkOption").text(message.d);
+                        $j("#checkOption").text(message.d);
+                        $j("#checkOption").val(message.d);
+                        
                     }
                 });
                 $j("#pnDetail").slideDown("slow");
+            });
+
+
+            $j("#txtAddressTo").change(function() {
+                $j.ajax({
+                    type: "POST",
+                    url: "ParcelPostOfficeFunction.aspx/CalculateFee",
+
+                    data: "{'parcelName':'" + $j("#<%=checkOption.ClientID%>").val() + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(message) {
+                        $j("#spFee").text(message.d);
+                    }
+                });
             });
 
 
@@ -59,13 +78,18 @@
                                 opt.text = message.d[i];
                                 opt.value = message.d[i];
                                 document.getElementById("ddlDistrict").options.add(opt);
-
                             }
-                            $j("#checkReturn").text("Loi");
-                        },
-                        error: function(errormessage) {
-                            //Hiển thị lỗi nếu xảy ra
-                            $j("#checkReturn").text(errormessage.responseText);
+                        }
+                    });
+                    $j.ajax({
+                        type: "POST",
+                        url: "ParcelPostOfficeFunction.aspx/CalculateLocation",
+                        data: "{type:'huyhcker','fromCity':'" + $j("#<%=ddlCity.ClientID%>").val() + "','toCity':'" + $j("#<%=ddlCityTo.ClientID%>").val() + "'}",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function(message) {
+                            $j("#checkOption").text(message.d);
+                            $j("#checkOption").val(message.d);
                         }
                     });
                 }
@@ -261,10 +285,24 @@
                                 <asp:Label ID="lbLocation" runat="server" Text="Option :"></asp:Label>
                             </td>
                             <td style="width:50%">
-                                <span id="checkOption"></span>
+                            
+                            <asp:Label ID="checkOption" runat="server" Text=""></asp:Label>
+                                
                             </td>
                             <td>
+                               
+                                
                             </td>
+                        </tr>
+                    
+                        <tr>
+                            <td style="width:10%">
+                                <asp:Label ID="lbFee" runat="server" Text="Fee :"></asp:Label>
+                               </td>
+                            <td style="width:50%">
+                                <span id="spFee"></span></td>
+                            <td>
+                                <asp:Label ID="lbFeeDescription" runat="server" Text="USD/WEIGHT" Font-Size="Small" ForeColor="BlueViolet"></asp:Label></td>
                         </tr>
                     
                     </table>

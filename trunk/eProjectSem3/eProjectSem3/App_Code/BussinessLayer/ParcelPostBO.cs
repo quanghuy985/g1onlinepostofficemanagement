@@ -30,5 +30,12 @@ public class ParcelPostBO
 
         return helper.ExecuteQuerry("sp_CalculateLocation", list);
     }
-
+    public DataTable GetFeeFromParcelName(string parcelName)
+    {
+        List<SqlParameter> list = new List<SqlParameter>();
+        SqlParameter paraParcelName= new SqlParameter("@parcelName", SqlDbType.NVarChar);
+        paraParcelName.Value = parcelName;
+        list.Add(paraParcelName);
+        return helper.ExecuteQuerry("sp_CalculateFee", list);
+    }
 }
