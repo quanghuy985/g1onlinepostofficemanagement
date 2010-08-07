@@ -85,4 +85,22 @@ public class MagazineBL
     public DataTable view_service_detail() {
         return helper.ExecuteQuerry("pc_view_service_maga", null);
     }
+    public int insert_magazine(string magazineName, string magazineDescription, string magazineImage, string adminUserName)
+    {
+        list = new List<SqlParameter>();
+        SqlParameter para1 = new SqlParameter("@magazineName", SqlDbType.NVarChar);
+        SqlParameter para2 = new SqlParameter("@magazineDescription", SqlDbType.NVarChar);
+        SqlParameter para3 = new SqlParameter("@magazineImage", SqlDbType.NVarChar);
+        SqlParameter para4 = new SqlParameter("@adminUserName", SqlDbType.NVarChar);
+        para1.Value = magazineName;
+        para2.Value = magazineDescription;
+        para3.Value = magazineImage;
+        para4.Value = adminUserName;
+        list.Add(para1);
+        list.Add(para2);
+        list.Add(para3);
+        list.Add(para4);
+       dta= helper.ExecuteQuerry("pc_insert_magazine", list);
+       return dta.Rows.Count;
+    }
 }
