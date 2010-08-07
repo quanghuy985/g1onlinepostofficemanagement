@@ -77,4 +77,21 @@ public partial class ParcelPostOfficeFunction : System.Web.UI.Page
         }
         return location;
     }
+    [System.Web.Services.WebMethod]
+    public static String CalculateFee(string parcelName)
+    {
+        string parcelFee = null;
+        DataTable dt;
+        ParcelPostBO parcelPost = new ParcelPostBO();
+        dt = parcelPost.GetFeeFromParcelName(parcelName);
+        if (dt.Rows.Count != 0)
+        {
+            parcelFee = dt.Rows[0].ItemArray[0].ToString();
+        }
+        else
+        {
+            parcelFee = "No Data";
+        }
+        return parcelFee;
+    }
 }

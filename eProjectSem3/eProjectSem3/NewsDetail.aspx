@@ -11,15 +11,19 @@
     <div>
     <table>
     <tr>
-    <td>
+    <td style="width:10%">
+        &nbsp;</td>
+<td style="width:80%">
     <asp:Repeater ID="rptNewsDetail" runat="server" 
             onitemcommand="rptNewsDetail_ItemCommand">
     <HeaderTemplate>
-    <table style="width:100% ; vertical-align:bottom " >
+    
+    <table style="width:100% ; vertical-align:middle " >
+    
     <tr>
     
-    <td style="width:100%" align="center">
-    Tin tức và Sự Kiện >>.
+    <td style="width:100%" align="left">
+    News >>.
     </td>
     <hr />
     </tr>
@@ -29,13 +33,13 @@
         <div style=" float:left; width: 100% ">
        <table style="width: 100%; height: 141px;">
             <tr>
-            <td align="center"style="font-style:italic;font-family:Times New Roman;">
-                   Tiêu đề : <%# DataBinder.Eval(Container.DataItem, "newsTitle")%> </td>
+            <td align="left"style="font-style:italic;font-family:Times New Roman;">
+                   Title : <%# DataBinder.Eval(Container.DataItem, "newsTitle")%> </td>
                 
             </tr>
             <tr>
                 
-                 <td align="center"> <%# DataBinder.Eval(Container.DataItem, "newsBrief")%>...<p></p></td>
+                 <td align="left"> <%# DataBinder.Eval(Container.DataItem, "newsBrief")%>...<p></p></td>
             </tr>
             <tr>
              
@@ -59,11 +63,15 @@
        
     </FooterTemplate>
 </asp:Repeater>
-</td>>
+</td>
+<td>
+</td>
 </tr>
+</table>
+<table>
 <tr>
-<td></td>
-<td align="center">
+<td style="width:20%"></td>
+<td align="center" style="width:40%">
 
                     <asp:Repeater ID="rptNewsFooter" runat="server">
     <HeaderTemplate>
