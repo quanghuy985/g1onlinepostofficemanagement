@@ -11,7 +11,7 @@
         var $j = jQuery.noConflict();
         $j(document).ready(function() {
             //Set Option cho Parcel
-            $j("#txtAddressTo").change(function() {
+        $j("#ddlCityTo").change(function() {
 
                 $j.ajax({
                     type: "POST",
