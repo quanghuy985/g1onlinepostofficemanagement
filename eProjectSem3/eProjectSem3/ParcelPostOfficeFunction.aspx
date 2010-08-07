@@ -16,15 +16,11 @@
                 $j.ajax({
                     type: "POST",
                     url: "ParcelPostOfficeFunction.aspx/CalculateLocation",
-                    data: "{'fromCity':'" + $j("#<%=ddlCity.ClientID%>").val() + "'}",
-                    data: "{'toCity':'" + $j("#<%=ddlCityTo.ClientID%>").val() + "'}",
+                    data: "{type:'huyhcker','fromCity':'" + $j("#<%=ddlCity.ClientID%>").val() + "','toCity':'" + $j("#<%=ddlCityTo.ClientID%>").val() + "'}",
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function(message) {
-//                        var opt = document.createElement("option");
-//                        opt.text = message.d;
-                    //                        document.getElementById("#checkOption").text(opt);
-                        $j("#checkOption").text(message.d);
+                    $j("#checkOption").text(message.d);
                     }
                 });
                 $j("#pnDetail").slideDown("slow");
