@@ -38,4 +38,8 @@ public class ParcelPostBO
         list.Add(paraParcelName);
         return helper.ExecuteQuerry("sp_CalculateFee", list);
     }
+    public DataTable getDataForParcelServiceDetail()
+    {
+        return helper.ExecuteQuerry("sp_GetDataForParcelServiceDetail", null);
+    }
 }
