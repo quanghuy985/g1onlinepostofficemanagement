@@ -10,7 +10,23 @@
     <script language="javascript" type="text/javascript">
         var $j = jQuery.noConflict();
         $j(document).ready(function() {
+            $j("#txtAddressForeign").change(function() {
+                $j("#checkOption").text("From In Viet Nam to Foreign");
+                $j("#checkOption").val("From In Viet Nam to Foreign");
+                $j("#pnDetail").slideDown("slow");
 
+                $j.ajax({
+                    type: "POST",
+                    url: "ParcelPostOfficeFunction.aspx/CalculateFee",
+
+                    data: "{'parcelName':'" + $j("#<%=checkOption.ClientID%>").val() + "'}",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function(message) {
+                        $j("#spFee").text(message.d);
+                    }
+                });
+            });
 
             //Set Option cho Parcel
             $j("#ddlCityTo").change(function() {
@@ -24,7 +40,7 @@
                     success: function(message) {
                         $j("#checkOption").text(message.d);
                         $j("#checkOption").val(message.d);
-                        
+
                     }
                 });
                 $j("#pnDetail").slideDown("slow");
@@ -51,13 +67,16 @@
             $j("#cbSendTo").change(function() {
                 if ($j("#cbSendTo:checked").length >= 1) {
 
-
                     $j("#pnSendtoforeign").slideDown("slow");
                     $j("#pnTo").hide();
+                    $j("#pnDetail").slideUp("slow");
+                    
                 }
                 else {
                     $j("#pnSendtoforeign").hide();
+                    $j("#pnDetail").slideUp("slow");
                     $j("#pnTo").slideDown("slow");
+                    
                 }
             });
             // Make the AJAX call to the WebMethod when the textbox loses focus
