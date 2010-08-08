@@ -16,6 +16,10 @@ public partial class ParcelPostOfficeFunction : System.Web.UI.Page
     {
         bindGridDDLCity();
     }
+    protected void bindGridDDLKindToSend()
+    {
+        DataTable dt;
+    }
     protected void bindGridDDLCity()
     {
         DataTable dt;

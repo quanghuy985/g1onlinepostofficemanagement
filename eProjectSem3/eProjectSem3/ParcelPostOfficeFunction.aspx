@@ -37,29 +37,27 @@
                     data: "{type:'huyhcker','fromCity':'" + $j("#<%=ddlCity.ClientID%>").val() + "','toCity':'" + $j("#<%=ddlCityTo.ClientID%>").val() + "'}",
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
-                    success: function(message) {
-                        $j("#checkOption").text(message.d);
-                        $j("#checkOption").val(message.d);
+                    success: function(messageoption) {
+                        $j("#checkOption").text(messageoption.d);
+                        $j("#checkOption").val(messageoption.d);
+                        $j.ajax({
+                            type: "POST",
+                            url: "ParcelPostOfficeFunction.aspx/CalculateFee",
 
+                            data: "{'parcelName':'"+ messageoption.d +"'}",
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            success: function(message) {
+                                $j("#spFee").text(message.d);
+                            }
+                        });
                     }
                 });
                 $j("#pnDetail").slideDown("slow");
             });
 
 
-            $j("#txtAddressTo").change(function() {
-                $j.ajax({
-                    type: "POST",
-                    url: "ParcelPostOfficeFunction.aspx/CalculateFee",
-
-                    data: "{'parcelName':'" + $j("#<%=checkOption.ClientID%>").val() + "'}",
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    success: function(message) {
-                        $j("#spFee").text(message.d);
-                    }
-                });
-            });
+         
 
 
 
@@ -106,9 +104,20 @@
                         data: "{type:'huyhcker','fromCity':'" + $j("#<%=ddlCity.ClientID%>").val() + "','toCity':'" + $j("#<%=ddlCityTo.ClientID%>").val() + "'}",
                         contentType: "application/json; charset=utf-8",
                         dataType: "json",
-                        success: function(message) {
-                            $j("#checkOption").text(message.d);
-                            $j("#checkOption").val(message.d);
+                        success: function(messageoption) {
+                        $j("#checkOption").text(messageoption.d);
+                        $j("#checkOption").val(messageoption.d);
+                            $j.ajax({
+                                type: "POST",
+                                url: "ParcelPostOfficeFunction.aspx/CalculateFee",
+
+                                data: "{'parcelName':'" + messageoption.d + "'}",
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                success: function(message) {
+                                    $j("#spFee").text(message.d);
+                                }
+                            });
                         }
                     });
                 }
@@ -300,7 +309,7 @@
                 <asp:Panel ID="pnDetail" runat="server" GroupingText="Detail">
                     <table style="width:100%">
                         <tr>
-                            <td style="width:10%">
+                            <td style="width:20%">
                                 <asp:Label ID="lbLocation" runat="server" Text="Option :"></asp:Label>
                             </td>
                             <td style="width:50%">
@@ -319,9 +328,34 @@
                                 <asp:Label ID="lbFee" runat="server" Text="Fee :"></asp:Label>
                                </td>
                             <td style="width:50%">
-                                <span id="spFee"></span></td>
+                            <asp:Label ID="spFee" runat="server" Text=""></asp:Label>
+                                </td>
                             <td>
                                 <asp:Label ID="lbFeeDescription" runat="server" Text="USD/WEIGHT" Font-Size="Small" ForeColor="BlueViolet"></asp:Label></td>
+                        </tr>
+                    
+                        <tr>
+                            <td style="width:10%">
+                                <asp:Label ID="lbWeight" runat="server" Text="Weight :"></asp:Label>
+                            </td>
+                            <td style="width:50%">
+                                <asp:TextBox ID="txtWeight" runat="server" Width="100%"></asp:TextBox>
+                            </td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                    
+                        <tr>
+                            <td style="width:10%">
+                                <asp:Label ID="lbOptionSend" runat="server" Text="Kind to send :"></asp:Label>
+                            </td>
+                            <td style="width:50%">
+                                <asp:DropDownList ID="ddlSendFollow" runat="server" Width="100%">
+                                <asp:ListItem>--- Please select kind of send ---</asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                            <td>
+                                &nbsp;</td>
                         </tr>
                     
                     </table>
