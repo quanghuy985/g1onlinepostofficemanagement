@@ -32,7 +32,7 @@
     <form id="form1" runat="server">
     <div>
     
-        <table style="width: 51%;">
+        <table style="width: 51%;" align="center" >
             <tr>
                 <td align="center" colspan="2" style="color: #0000FF; font-size: x-large">
                     Add Magazine Daily</td>
@@ -65,7 +65,7 @@
             <tr>
                 <td class="style4" align="center" colspan="2">
                     <asp:Button ID="btnSumit" runat="server" onclick="btnSumit_Click" 
-                        Text="Submit" />
+                        Text="Submit" style="height: 26px" />
                     <br />
                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                 </td>
