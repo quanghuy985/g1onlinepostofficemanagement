@@ -19,7 +19,7 @@
             </tr>
             <tr>
                 <td align="right">
-                    <asp:Label ID="Label2" runat="server" Text="User Name:"></asp:Label>
+                    <asp:Label ID="lbUserName" runat="server" Text="User Name:"></asp:Label>
                 </td>
                 <td align="center">
                     <asp:TextBox ID="txtUserName" runat="server" Width="200px"></asp:TextBox>
