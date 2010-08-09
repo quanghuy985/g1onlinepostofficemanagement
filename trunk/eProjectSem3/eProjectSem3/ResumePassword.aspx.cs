@@ -10,6 +10,9 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
+using System.Net;
+using System.Net.Mail;
+
 
 public partial class eProjectSem3_ResumePassword : System.Web.UI.Page
 {
@@ -20,8 +23,8 @@ public partial class eProjectSem3_ResumePassword : System.Web.UI.Page
     private void sendMail(string Email, string Password)
     {
         MailMessage message = new MailMessage();
-        message.From = new MailAddress("@gmail.com");
-        message.To.Add(new MailAddress(Mail));
+        message.From = new MailAddress("onlinepostofficewebmaster@gmail.com");
+        message.To.Add(new MailAddress(Email));
         message.Subject = "Hey! Man";
         message.Body = "Password Tài khoản:" + txtUserName.Text + " là :" + Password ;
         SmtpClient client = new SmtpClient();
@@ -35,16 +38,17 @@ public partial class eProjectSem3_ResumePassword : System.Web.UI.Page
         dtTable = cus.ResumePassword(txtUserName.Text);
         string Password;
         string Email;
-        if (dtTableName.Rows.Count == 0)
+        if (dtTable.Rows.Count == 0)
         {
-            lbError.Text = "Sai tên Tài khoản! Vui lòng nhập lại hoặc đăng ký tài khoản này";
+            lbInfo.Text = "Sai tên Tài khoản! Vui lòng nhập lại hoặc đăng ký tài khoản này";
 
         }
         else
         {
-            Password = dtTable.Rows[0].ItemArray[1];
-            Email = dtTable.Rows[0].ItemArray[4];
+            Password = dtTable.Rows[0].ItemArray[1].ToString();
+            Email = dtTable.Rows[0].ItemArray[4].ToString();
             sendMail(Email , Password);
+            lbInfo.Text = "Mời bạn check mail: " + Email;
 
         }
 
