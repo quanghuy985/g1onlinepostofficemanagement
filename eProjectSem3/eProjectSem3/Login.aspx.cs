@@ -46,7 +46,7 @@ public partial class eProjectSem3_eProjectSem3_Login : System.Web.UI.Page
                 {
                    
                     Session["User"] = txtUserName.Text;
-                    Response.Redirect("Default.aspx");
+                    Response.Redirect("TestHuyDD.aspx");
                 }
             }
         }
@@ -59,5 +59,11 @@ public partial class eProjectSem3_eProjectSem3_Login : System.Web.UI.Page
     {
         Response.Redirect("ResumePassword.aspx");
     }
+    protected void btnReset_Click(object sender, EventArgs e)
+    {
+        txtUserName.Text = "";
+        txtPassword.Text = "";
+    }
+
 }
 
