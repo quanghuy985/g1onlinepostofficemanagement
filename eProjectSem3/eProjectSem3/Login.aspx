@@ -43,7 +43,7 @@
                 </td>
                 <td align="center">
                     <asp:TextBox ID="txtPassword" runat="server" style="margin-left: 4px" 
-                        Width="200px"></asp:TextBox>
+                        Width="200px" TextMode="Password"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -54,11 +54,13 @@
                     <asp:Button ID="btnSubmit" runat="server" onclick="btnSubmit_Click" 
                         Text="Submit" Width="60px" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="btnReset" runat="server" Text="Reset" Width="60px" />
+                    <asp:Button ID="btnReset" runat="server" Text="Reset" Width="60px" 
+                        onclick="btnReset_Click" />
 &nbsp;&nbsp;
                     <asp:Button ID="btnCreateAccount" runat="server" 
                         onclick="btnCreateAccount_Click" Text="Create Account" />
-                    <asp:LinkButton ID="lbtnforgetPassword" runat="server">Forget Password!!!</asp:LinkButton>
+                    <asp:LinkButton ID="lbtnforgetPassword" runat="server" 
+                        onclick="lbtnforgetPassword_Click">Forget Password!!!</asp:LinkButton>
                 </td>
             </tr>
             <tr>
