@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="test.aspx.cs" Inherits="test" %>
 
+<%@ Register assembly="FredCK.FCKeditorV2" namespace="FredCK.FCKeditorV2" tagprefix="FCKeditorV2" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -13,14 +15,16 @@
         <table style="width: 52%; height: 269px;">
             <tr>
                 <td rowspan="3">
-                    <asp:TextBox ID="TextBox1" runat="server" ontextchanged="TextBox1_TextChanged">1</asp:TextBox>
+                    fddfgdfg<br />
                 </td>
                 <td>
                     &nbsp;</td>
             </tr>
             <tr>
                 <td>
-                    &nbsp;</td>
+                    <FCKeditorV2:FCKeditor ID="FCKeditor2" runat="server" BasePath="~/fckeditor/">
+                    </FCKeditorV2:FCKeditor>
+                </td>
             </tr>
             <tr>
                 <td>

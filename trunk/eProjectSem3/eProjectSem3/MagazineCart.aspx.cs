@@ -15,12 +15,20 @@ public partial class MagazineCartaspx : System.Web.UI.Page
 {
     ArrayList cart;
     int month;
+    MagazineBL mgb = new MagazineBL();
+    private DataTable dta;
     protected void Page_Load(object sender, EventArgs e)
     {
+        dta = mgb.view_service_detail();
+        DropDownList1.DataSource = dta;
+        DropDownList1.DataTextField = "serviceDetailName";
+        DropDownList1.DataValueField = "serviceDetailID";
+        DropDownList1.DataBind();  
         if (!IsPostBack)
         {
             bindGrid();
         }
+
     }
     public void deleteCart(object sender, CommandEventArgs e)
     {
@@ -37,6 +45,12 @@ public partial class MagazineCartaspx : System.Web.UI.Page
                 break;
             }
         }
+    }
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        cart = (ArrayList)Session["ShoppingCart"];
+        MagazineBL mgb = new MagazineBL();
+        mgb.insert_Order_detail(Session["User"].ToString(), cart, txtadress.Text, Convert.ToInt32(DropDownList1.SelectedValue.ToString()));
     }
     private void bindGrid()
     {
@@ -59,11 +73,13 @@ public partial class MagazineCartaspx : System.Web.UI.Page
         }
         rpt_mg_cart.DataSource = bk;
         rpt_mg_cart.DataBind();
+                
       //  lblSum.Text = sum.ToString() + " .VND";
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Response.Redirect("checkOutMagazine.aspx");
+       // Response.Redirect("checkOutMagazine.aspx");
+        Panel1.Visible = true;
     }
     protected void TextBox1_TextChanged(object sender, EventArgs e)
     {

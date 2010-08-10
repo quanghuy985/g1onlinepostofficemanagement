@@ -5,6 +5,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Untitled Page</title>
+    <style type="text/css">
+
+        .style3
+        {
+            width: 43px;
+        }
+        .style4
+        {
+            width: 100px;
+            height: 36px;
+        }
+        .style5
+        {
+            height: 36px;
+        }
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -57,6 +73,43 @@
     </asp:Repeater>
         <asp:Button ID="Button1" runat="server" onclick="Button1_Click" 
             Text="Check Out" style="width: 94px" />
+        <br />
+        <asp:Panel ID="Panel1" runat="server" Height="166px" Visible="False" 
+            Width="271px">
+            <table style="width: 50%; height: 98px;">
+                <tr>
+                    <td class="style1">
+                        &nbsp;</td>
+                    <td align="center">
+                        Thong tin khach hang</td>
+                    <td class="style3">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="style4">
+                        Service Detail</td>
+                    <td colspan="2" class="style5">
+                        <asp:DropDownList ID="DropDownList1" runat="server">
+                        </asp:DropDownList>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1">
+                        Adress</td>
+                    <td colspan="2" style="color: #FF0000">
+                        <asp:TextBox ID="txtadress" runat="server" Width="210px"></asp:TextBox>
+                        <br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                            ControlToValidate="txtadress" ErrorMessage="pleade insert full adress"></asp:RequiredFieldValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1" align="center" colspan="3">
+                        <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="Submit" />
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
         <br />
         <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
         <br />
