@@ -18,8 +18,7 @@ public partial class checkOutMagazine : System.Web.UI.Page
     ArrayList cart;
     protected void Page_Load(object sender, EventArgs e)
     {
-       dta= mgb.view_service_detail();
-       
+            dta= mgb.view_service_detail();       
            DropDownList1.DataSource = dta;
            DropDownList1.DataTextField = "serviceDetailName";
            DropDownList1.DataValueField = "serviceDetailID";

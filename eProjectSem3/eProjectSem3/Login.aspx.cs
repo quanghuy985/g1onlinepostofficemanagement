@@ -46,7 +46,11 @@ public partial class eProjectSem3_eProjectSem3_Login : System.Web.UI.Page
                 {
                    
                     Session["User"] = txtUserName.Text;
+<<<<<<< .mine
+                    Response.Redirect("Magazine.aspx");
+=======
                     Response.Redirect("TestHuyDD.aspx");
+>>>>>>> .r67
                 }
             }
         }
