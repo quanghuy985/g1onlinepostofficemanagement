@@ -77,4 +77,12 @@ public class CustomerBL
         list.Add(paracusPassword);
         return helper.ExecuteQuerry("CheckCustomerLogin", list);
     }
+    public DataTable DeactiveCustomer(string cusUserName)
+    {
+        List<SqlParameter> list = new List<SqlParameter>();
+        SqlParameter paracusUserName = new SqlParameter("@cusUserName", SqlDbType.VarChar);
+        paracusUserName.Value = cusUserName;
+        list.Add(paracusUserName);
+        return helper.ExecuteQuerry("DeactiveCustomer", list);
+    }
 }
