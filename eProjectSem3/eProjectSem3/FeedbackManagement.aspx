@@ -41,6 +41,10 @@
     </FooterTemplate>
         </asp:Repeater>
     
+        <asp:Label ID="lbWarring" runat="server" 
+            Text="Các Phần Của Em Làm Đều Chạy Ngon Lành Nhưng Ko Commit được Cơ Sở Dữ Liệu ai Update về chạy thử ko được là do thiếu Procedure nên đừng có xóa em Bổ sung vào máy Bảo vệ sau!!!"></asp:Label>
+        <br />
+    
     </div>
     </form>
 </body>
