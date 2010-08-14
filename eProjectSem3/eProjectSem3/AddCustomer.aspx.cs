@@ -21,7 +21,7 @@ public partial class AddCustomer : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        txtUserName.Text = Request.QueryString["UserName"];
+        txtUsername.Text = Request.QueryString["UserName"];
     }
 
     private void sendMail()
@@ -39,17 +39,17 @@ public partial class AddCustomer : System.Web.UI.Page
     }
     protected void Label6_Click(object sender, EventArgs e)
     {
-        //if (cusBL.CheckExistCustomer(txtUsername.Text).Rows.Count ==1)
-        //{
-        //    lblMss.Text = "User existed !";
-        //    lblMss.Focus();
-        //}
-        //else if(cusBL.CheckExistCustomer(txtUsername.Text).Rows.Count ==0)
-        //{
+        if (cusBL.CheckExistCustomer(txtUsername.Text).Rows.Count ==1)
+        {
+            lblMss.Text = "User existed !";
+            lblMss.Focus();
+        }
+        else if(cusBL.CheckExistCustomer(txtUsername.Text).Rows.Count ==0)
+        {
 
             cusBL.AddCustomer(txtUsername.Text, txtPassword.Text, txtFullname.Text, txtAddress.Text, txtEmail.Text);
             sendMail();
             Response.Redirect("Loading.aspx");
-        //}
+        }
     }
 }
